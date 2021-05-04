@@ -48,7 +48,7 @@ def loadData():
     dataFrame = []
     for label in labels:
         for speedLabel in speedLabels:
-            dataFrame[i] = pd.read_csv(f"data/gray_{speedLabel}_{label}.csv", header=None, names=["sound", "acc1", "acc2"])
+            dataFrame.append(pd.read_csv(f"data/gray_{speedLabel}_{label}.csv", header=None, names=["sound", "acc1", "acc2"]))
             i+=1
     return dataFrame
 

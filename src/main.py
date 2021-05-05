@@ -80,41 +80,43 @@ if __name__=="__main__":
     X,y = loadData()
     X_train,  X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.3, random_state=True, shuffle=True)
 
-    #https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.fit
+    # https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.fit
     scaler = preprocessing.StandardScaler().fit(X_train)
     X_train = scaler.transform(X_train)
     X_test = scaler.transform(X_test)
 
-    model = Sequential()    #https://keras.io/api/models/sequential/
+    model = Sequential()    # https://keras.io/api/models/sequential/
 
-    print(model.summary)
+    # Summary before Dense
+    print(model.summary) # https://machinelearningmastery.com/visualize-deep-learning-neural-network-model-keras/#:~:text=%27sigmoid%27))-,Summarize%20Model,output%20shape%20of%20each%20layer.
 
-    model.add(Dense(60, activation='relu',input_shape=(12,)))
+    model.add(Dense(60, activation='relu',input_shape=(12,))) # https://keras.io/api/layers/core_layers/dense/
     model.add(Dense(8, activation='relu', input_shape=(12,)))
     model.add(Dense(3, activation='softmax', input_shape=(12,)))
 
-    print(model.summary()) #https://machinelearningmastery.com/visualize-deep-learning-neural-network-model-keras/#:~:text=%27sigmoid%27))-,Summarize%20Model,output%20shape%20of%20each%20layer.
+    # Summary after Dense
+    print(model.summary())
     
-    #https://keras.io/api/models/model_training_apis/
+    # https://keras.io/api/models/model_training_apis/
     model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 
-    #print shape of X 
+    # Print shape of X and y trains and tests
     print(X_train.shape)
     print(X_test.shape)
     print(y_train.shape)
     print(y_test.shape)
 
 
-    # fit the model -> https://keras.io/api/models/model_training_apis/
+    # Fit the model -> https://keras.io/api/models/model_training_apis/
     history = model.fit(
         X_train,
         to_categorical(y_train),
         epochs=50,
         batch_size=64, #32 default
-        validation_data=(X_test, to_categorical(y_test))
+        validation_data=(X_test, to_categorical(y_test)) # https://www.tensorflow.org/api_docs/python/tf/keras/utils/to_categorical
     )
 
-    #Show graph 
+    # Plot graph 
     plt.plot(history.history['accuracy'], label='accuracy')
     plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
     plt.xlabel('Epoch')
@@ -123,5 +125,5 @@ if __name__=="__main__":
     plt.ylim([0.5, 1])
     plt.show()
 
-    # Evaluate the model.
+    # Evaluation
     model.evaluate(X_test,to_categorical(y_test), verbose=2)

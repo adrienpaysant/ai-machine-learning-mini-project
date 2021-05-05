@@ -86,6 +86,9 @@ if __name__=="__main__":
     X_test = scaler.transform(X_test)
 
     model = Sequential()    #https://keras.io/api/models/sequential/
+
+    print(model.summary)
+
     model.add(Dense(60, activation='relu',input_shape=(12,)))
     model.add(Dense(8, activation='relu', input_shape=(12,)))
     model.add(Dense(3, activation='softmax', input_shape=(12,)))

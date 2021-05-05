@@ -3,14 +3,16 @@
 
 # Rapport partie commune :
 
-1. Introduction
+# 1. Introduction
+
 Le but de la partie commune de ce TP est de mettre en place un réseau de neurone sur un DataSet de moteur.
 
 Ce Dataset est récupéré depuis des fichiers .csv.
 
 Pour réaliser notre réseau nous utilisons la partie keras de la bibliothèque tensorflow : https://keras.io
 
-Implémentation
+# 2.Implémentation
+
 Nous utilisons une fonction loadData() pour récupérer deux tableaux numpy.
 
 Ils correspondent au X et y que l'on utilise ensuite pour spliter la partie train et la partie test.
@@ -43,5 +45,6 @@ Nous continuons en fittant le model. On utilise 50 epochs et 64 batch_size, ces 
 
 Enfin, nous affichons le résultat et on évalue notre modele.
 
-Résultats
+# 3. Résultats
+
 Avec une accuracy à 99,44%, notre modèle semble bien fonctionner.

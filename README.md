@@ -5,7 +5,7 @@
 
 1. Introduction
 
-Le but de la partie commune de ce TP est de mettre en place u réseau de neurone sur un DataSet de moteur. 
+Le but de la partie commune de ce TP est de mettre en place un réseau de neurone sur un DataSet de moteur. 
 
 Ce Dataset est récupéré depuis des fichiers .csv.
 
@@ -14,7 +14,7 @@ Pour réaliser notre réseau nous utilisons la partie keras de la bibliothèque 
 
 2. Implémentation
 
-Nous utilisons une fonction loadData() pour récupéré deux tableaux numpy.
+Nous utilisons une fonction loadData() pour récupérer deux tableaux numpy.
 
 Ils correspondent au X et y que l'on utilise ensuite pour spliter la partie train et la partie test.
 
@@ -22,7 +22,7 @@ La fonction LoadData() permet de récupérer uniquement une partie des données 
 
 Dans un premier temps, nous lisons chaque fichier csv avec pandas comme montré dans l'exemple.
 
-Pour une taille de fenetre donnée(50), nous récupérons toutes les données d'une fenetre, puis on garde uniquement le minimum de chaque colonne, la maximum, la moyenne, et l'ecart type.
+Pour une taille de fenetre donnée(50), nous récupérons toutes les données d'une fenêre, puis on garde uniquement le minimum de chaque colonne, la maximum, la moyenne, et l'ecart type.
 
 Nous avons ainsi 12 champs sur lesquels travailler.
 
